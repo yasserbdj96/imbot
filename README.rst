@@ -22,21 +22,21 @@ Usage
 
 This is an example for login to github and go your profile:
 .. code:: json
-    {
-	    "login":{
-	    	"url":"https://github.com/",
-            "xpaths":[
-		        {"xpath":"/html/body/div[1]/header/div/div[2]/div[2]/a[1]","opt":"click"},
-			    {"xpath":"//input[@name=\"login\"]","opt":"put","data":"<YOUR_EMAIL>"},
-			    {"xpath":"//input[@name=\"password\"]","opt":"put","data":"<YOUR_PASSWORD>"},
-			    {"xpath":"//input[@type=\"submit\"]","opt":"click"},
-			    {"xpath":"//*[@id=\"otp\"]","opt":"put"},
-			    {"xpath":"//*[@id=\"login\"]/div[3]/form/button","opt":"click"},
-			    {"xpath":"/html/body/div[1]/header/div[7]/details/summary/span[2]","opt":"click"},
-			    {"xpath":"/html/body/div[1]/header/div[7]/details/details-menu/a[1]","opt":"click"}
-		    ]
-        }
+{
+    "login":{
+        "url":"https://github.com/",
+        "xpaths":[
+	    {"xpath":"/html/body/div[1]/header/div/div[2]/div[2]/a[1]","opt":"click"},
+	    {"xpath":"//input[@name=\"login\"]","opt":"put","data":"<YOUR_EMAIL>"},
+	    {"xpath":"//input[@name=\"password\"]","opt":"put","data":"<YOUR_PASSWORD>"},
+	    {"xpath":"//input[@type=\"submit\"]","opt":"click"},
+	    {"xpath":"//*[@id=\"otp\"]","opt":"put"},
+	    {"xpath":"//*[@id=\"login\"]/div[3]/form/button","opt":"click"},
+	    {"xpath":"/html/body/div[1]/header/div[7]/details/summary/span[2]","opt":"click"},
+	    {"xpath":"/html/body/div[1]/header/div[7]/details/details-menu/a[1]","opt":"click"}
+	]
     }
+}
 
 
 .. begin changelog
