@@ -2,6 +2,8 @@ imbot
 ==========================
 "imbot" for making a bot to control any website from json file.
 
+.. image:: https://travis-ci.com/byRo0t96/imbot.svg?branch=main
+
 Installation
 ============
 
