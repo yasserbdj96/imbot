@@ -1,6 +1,6 @@
 imbot
 ==========================
-"imbot" for making a bot to control any website from json file.
+imbot for making a bot to control any website.
 
 .. image:: https://travis-ci.com/byRo0t96/imbot.svg?branch=main
 
@@ -17,34 +17,87 @@ Usage
 
     from imbot import imbot
 
-    p1=imbot("<JSON_FILE_PATH>","<OPTION>",<TIME_EVERY_OPERATION>)
-    p1.run() # for run imbot
-    p1.end() # close
+    p1=imbot("<JSON_FILE_PATH>",<TIME_EVERY_OPERATION>)#Get information.
+    p1.run("<OPTION>","<DATA>") # Start imbot.
+    p1.end() #close.
 
-
-This is an example for login to github and go your profile:
 .. code:: json
 {
-    "login":{
-        "url":"https://github.com/",
-        "xpaths":[
-	    {"xpath":"/html/body/div[1]/header/div/div[2]/div[2]/a[1]","opt":"click"},
-	    {"xpath":"//input[@name=\"login\"]","opt":"put","data":"<YOUR_EMAIL>"},
-	    {"xpath":"//input[@name=\"password\"]","opt":"put","data":"<YOUR_PASSWORD>"},
-	    {"xpath":"//input[@type=\"submit\"]","opt":"click"},
-	    {"xpath":"//*[@id=\"otp\"]","opt":"put"},
-	    {"xpath":"//*[@id=\"login\"]/div[3]/form/button","opt":"click"},
-	    {"xpath":"/html/body/div[1]/header/div[7]/details/summary/span[2]","opt":"click"},
-	    {"xpath":"/html/body/div[1]/header/div[7]/details/details-menu/a[1]","opt":"click"}
-	]
+	"url":"<YOUR_LINK>",
+	"<OPTION>":{
+		"operations":[
+		    {
+			    "type":"<FIND_ELEMENT_BY>",
+				"code":"<IDENTIFIER>",
+				"opt":"click"
+			},
+			{
+			    "type":"<FIND_ELEMENT_BY>",
+				"arg_code":"<ORDER_OF_IDENTIFIER_IN run(0,1,2....) FUNCTION>",
+				"opt":"click"
+			},
+			{
+			    "type":"<FIND_ELEMENT_BY>",
+				"code":"<IDENTIFIER>",
+				"opt":"put",
+				"data":"THE_DATA_YOU_WANT_TO_ENTER"
+			},
+			{
+			    "type":"<FIND_ELEMENT_BY>",
+				"arg_code":"<ORDER_OF_IDENTIFIER_IN run(0,1,2....) FUNCTION>",
+				"opt":"put",
+				"arg_data":"ORDER_OF_DATA_YOU_WANT_TO_ENTER_IN run(0,1,2...) FUNCTION"
+			}
+		]
     }
 }
 
+
+Example
+=====
+.. code:: python
+
+    from imbot import imbot
+
+    # Example:1
+    #Open github website, login:
+    p1=imbot("github.json")
+    p1.run("login",'<USERNAME>','<PASSWORD>')
+    p1.end()
+
+    # Example:2
+	#Open github website, login & go to your profile:
+    p2=imbot("github.json")
+	p2.run("login",'<USERNAME>','<PASSWORD>')
+	p2.run("profile")
+    p2.end()
+	
+	# Example:3
+	#Open github website, login & delete a repository:
+	p3=imbot("github.json")
+	p3.run("login",'<USERNAME>','<PASSWORD>')
+    p3.run("repository_delete",'<USERNAME>/<REPOSITORY_NAME>','<PASSWORD>')
+	p3.end()
+	
+    # Example:4
+    #Open github website, login and delete a list of repositories:
+	p4=imbot("github.json",5)
+	p4.run("login",'<USERNAME>','<PASSWORD>')
+	f=open("<REPOSITORIES_LIST.txt>","r").read().split('\n')#type of list is "<USERNAME>/<REPOSITORY_NAME>" in any line
+	for x in f:
+        p4.run("repository_delete",x,'<PASSWORD>')
+    p4.end()
+
+
+.. image:: screenshot/screenshot_1.png
 
 .. begin changelog
 
 Changelog
 =========
+0.1.0
+-----
+- New build.
 
 0.0.1
 -----
