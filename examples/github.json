@@ -2,7 +2,7 @@
 	"url":"https://github.com/",
 	"login":{
 		"operations":[
-		    {"type":"xpath","code":"/html/body/div[1]/header/div/div[2]/div[2]/a[1]","opt":"click"},
+		    {"type":"xpath","code":"/html/body/div[1]/header/div/div[2]/div[2]/div[2]/a","opt":"click"},
 			{"type":"xpath","code":"/html/body/div[3]/main/div/div[4]/form/input[2]","opt":"put","arg_data":"0"},
 			{"type":"xpath","code":"/html/body/div[3]/main/div/div[4]/form/div/input[1]","opt":"put","arg_data":"1"},
 			{"type":"xpath","code":"/html/body/div[3]/main/div/div[4]/form/div/input[12]","opt":"click"},
