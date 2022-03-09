@@ -14,7 +14,7 @@ from imbot import *
 
 # Examples
 # Open the website link:
-p1=imbot("./github.json")
+p1=imbot("./home/runner/work/imbot/imbot/examples/github.json")
 
 # Login:
 p1.run("login",'<YOUR_PASSWORD>')
