@@ -24,8 +24,8 @@ jobs:
       - name: pip Upgrade
         run: python -m pip install --upgrade pip
         
-      #- name: Install imbot
-      #  run: pip install imbot
+      - name: Install selenium
+        run: pip install selenium
         
       - name: Testing the Package 
         run: python examples/examples.py
