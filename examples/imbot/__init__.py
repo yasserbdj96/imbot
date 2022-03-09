@@ -32,7 +32,7 @@ class imbot:
         chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_experimental_option("detach",True)
-        self.driver=webdriver.Chrome('/home/runner/chromedriver',options=chrome_options)
+        self.driver=webdriver.Chrome('/home/runner/work/imbot/imbot/examples/chromedriver',options=chrome_options)
         self.driver.get(self.json_data['url'])
         self.sleep_time=sleep_time
     #run:
