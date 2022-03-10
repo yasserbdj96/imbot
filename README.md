@@ -12,8 +12,8 @@
 | Distribution | Version Check     | Python Test Version | Supported | Status  | Everything works |
 | :----------: | :---------------: | :-----------------: | :-------: | :----:  | :--------------: |
 | Ubuntu       | 20.04.3           | 3.6, 3.7, 3.8, 3.9  | Yes       | Working | Yes              |
-| Windwos      | 11.6.4            | 3.6, 3.7, 3.8, 3.9  | Yes       | Working | Yes              |
-| MacOS        | 10.0.20348        | 3.6, 3.7, 3.8, 3.9  | Yes       | Working | Yes              |
+| Windwos      | 11.6.4            | 3.6, 3.7, 3.8, 3.9  | Yes       | Working | No               |
+| MacOS        | 10.0.20348        | 3.6, 3.7, 3.8, 3.9  | Yes       | Working | No               |
 
 <h2>Installation:</h2>
 
