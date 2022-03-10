@@ -1,37 +1,39 @@
 #!/usr/bin/env python
 # coding:utf-8
-# code by : Yasser BDJ
-# email : by.root96@gmail.com 
-#s
-from setuptools import setup, find_packages
+#code by:YasserBDJ96
+#email:yasser.bdj96@gmail.com
 
-# Setting up
+#START{
+from setuptools import setup,find_packages
 setup(
     name="imbot",
     version=open('version.txt').read(),
-    author="Yasser BDJ (Ro0t96)",
-    author_email="by.root96@gmail.com",
-    description='imbot for making a bot to control any website.',
+    author="YasserBDJ96",
+    author_email="yasser.bdj96@gmail.com",
+    description='''imbot for making a bot to control any website.''',
     long_description_content_type="text/markdown",
-    long_description=open('README.rst').read(),
+    long_description=open('README.md','r').read(),
+    license='''MIT License''',
     packages=find_packages(),
-    project_urls={  # Optional
-        'Author WebSite': "https://byro0t96.github.io/",
-        'Author Github': "https://github.com/byRo0t96",
-        'Source Code': 'https://github.com/byRo0t96/imbot',
+    url="https://yasserbdj96.github.io/",
+    project_urls={
+        'Source Code': "https://github.com/yasserbdj96/imbot",
+        'Instagram': "https://www.instagram.com/yasserbdj96/",
     },
-    install_requires=['selenium','hexor'],
-    keywords=['python','bot','website bot'],
+    install_requires=['selenium','hexor','asciitext'],
+    keywords=['yasserbdj96','python','bot','website bot','robot'],
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
         "Topic :: Software Development :: Build Tools",
-        "Topic :: Software Development :: Libraries :: Python Modules"
-    ]
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        'Topic :: Communications :: Email'
+    ],
+    python_requires=">=3.x.x"
 )
-#e
+#}END.

@@ -4,28 +4,17 @@
 #email:yasser.bdj96@gmail.com
 
 #START{
-#s
-"""
-help:
-find_element_by_id
-find_element_by_name
-find_element_by_xpath
-find_element_by_link_text
-find_element_by_partial_link_text
-find_element_by_tag_name
-find_element_by_class_name
-find_element_by_css_selector
-"""
 from selenium import webdriver
 from time import sleep
 from selenium.webdriver.chrome.options import Options
 import json
 from hexor import hexor
+from asciitext import *
 
 #start imbot class:
 class imbot:
     #__init__
-    def __init__(self,json_data,sleep_time=2):
+    def __init__(self,json_data,sleep_time=2,url=""):
         with open(json_data) as f:self.json_data=json.load(f)
         chrome_options=Options()
         chrome_options.add_experimental_option('excludeSwitches',['enable-logging'])
@@ -33,7 +22,13 @@ class imbot:
         chrome_options.add_argument("--start-maximized")
         chrome_options.add_experimental_option("detach",True)
         self.driver=webdriver.Chrome(options=chrome_options)
-        self.driver.get(self.json_data['url'])
+        #
+        if "url" in self.json_data:
+            self.url=self.json_data['url']
+        else:
+            self.url=url
+
+        self.driver.get(self.url)
         self.sleep_time=sleep_time
     #run:
     def run(self,goto,*argm):
@@ -85,4 +80,11 @@ class imbot:
     #end:
     def end(self):
         self.driver.close()
+    
+    #about:
+    def about(self):
+        font_url="https://raw.githubusercontent.com/yasserbdj96/asciitext/main/fonts/ANSI_Shadow.txt"
+        print(ascii.asciitext(font_url,"#imbot","#ff0000"))
+        hexor().c("https://github.com/yasserbdj96","#299c52")
+        print("")
 #}END.
