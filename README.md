@@ -107,6 +107,9 @@ p1.end()
 <h2>Changelog History:</h2>
 
 ```
+## 0.1.2 [10-03-2022]
+ - Fix bugs.
+
 ## 0.1.1 [10-03-2022]
  - Fix bugs.
 
