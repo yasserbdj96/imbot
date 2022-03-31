@@ -1,7 +1,5 @@
 name: Python package
-
 on: [push]
-
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -20,15 +18,11 @@ jobs:
       # You can test your matrix by printing the current Python version
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
-        
       - name: pip Upgrade
         run: python -m pip install --upgrade pip
-        
       - name: Install requirements
         run: pip install -r requirements.txt
-        
       - name: Install the Package
         run: pip install imbot
-        
-      - name: Testing the Package 
+      - name: Testing the Package
         run: python -c "from imbot import *"
