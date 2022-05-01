@@ -2,7 +2,7 @@
 
 <p>imbot for making a bot to control any website.</p>
 
-[![Python package](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml)
+[![Python package](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml) [![CodeFactor](https://www.codefactor.io/repository/github/yasserbdj96/imbot/badge)](https://www.codefactor.io/repository/github/yasserbdj96/imbot)
 
 <h2>Languages:</h2>
 * python3
