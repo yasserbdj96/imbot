@@ -15,7 +15,8 @@ from asciitext import *
 class imbot:
     #__init__
     def __init__(self,json_data,sleep_time=2,url=""):
-        with open(json_data) as f:self.json_data=json.load(f)
+        with open(json_data) as f:
+            self.json_data=json.load(f)
         chrome_options=Options()
         chrome_options.add_experimental_option('excludeSwitches',['enable-logging'])
         chrome_options.add_argument('--log-level=3')
@@ -33,27 +34,28 @@ class imbot:
     #run:
     def run(self,goto,*argm):
         operations=self.json_data[goto]['operations']
-        for i in range(len(operations)):
+        #for i in range(len(operations)):
+        for i, operation in enumerate(operations):
             try:
                 #
-                if "code" in operations[i]:
-                    code=operations[i]['code']
-                elif "arg_code" in operations[i]:
-                        code=argm[int(operations[i]['arg_code'])]
+                if "code" in operation:
+                    code=operation['code']
+                elif "arg_code" in operation:
+                        code=argm[int(operation['arg_code'])]
                 #
-                types=operations[i]['type']
+                types=operation['type']
                 exec(f"self.driver.find_element_by_{types}('{code}')")
                 #
-                if operations[i]['opt']=="click":
+                if operation['opt']=="click":
                     do="click()"
                     text=f"[✓] Clicking on element_by_{types} : '{code}'"
                 #
-                elif operations[i]['opt']=="put":
+                elif operation['opt']=="put":
                     #
-                    if "arg_data" in operations[i]:
-                        data=argm[int(operations[i]['arg_data'])]
-                    elif "data" in operations[i]:
-                        data=operations[i]['data']
+                    if "arg_data" in operation:
+                        data=argm[int(operation['arg_data'])]
+                    elif "data" in operation:
+                        data=operation['data']
                     else:
                         data=input(hexor(True).c("Data is empty : ","#ff0000"))
                     do=f"send_keys('{data}')"
@@ -62,21 +64,25 @@ class imbot:
                 exec(f"self.driver.find_element_by_{types}('{code}').{do}")
                 hexor().c(text,"#299c52")
                 sleep(self.sleep_time)
-            except:
+            except Exception as e:
                 try:
                     #
-                    if "code" in operations[i]:
-                        code=operations[i]['code']
-                    elif "arg_code" in operations[i]:
-                        code=argm[int(operations[i]['arg_code'])]
+                    if "code" in operation:
+                        code=operation['code']
+                    elif "arg_code" in operation:
+                        code=argm[int(operation['arg_code'])]
                     #
-                    types=operations[i]['type']
+                    types=operation['type']
                     hexor().c(f"[✗] We couldn't find : element_by_{types}:'{code}'","#ff0000")
                     sleep(self.sleep_time)
                     del code
-                except:
+                except Exception as e:
                     hexor().c("Erreur inconnue!.","#ff0000")
                     sleep(self.sleep_time)
+                finally:
+                    pass
+            finally:
+                pass
     #end:
     def end(self):
         self.driver.close()

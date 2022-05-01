@@ -8,8 +8,7 @@ Default json code:
         ]
     }
 }
-"""
-"""
+
 Help:
 # Types of finding elements : "type"=[id,name,xpath,link_text,partial_link_text,tag_name,class_name,css_selector]
 # If you don't use the 'code' key, you must use the 'arg_code' key to enter data from your script.
@@ -46,8 +45,9 @@ p1.run("login",'<YOUR_PASSWORD>')
 Lines=open('list.txt','r').readlines()
 
 # Strips the newline character
-for i in range(len(Lines)):
-    repositorie=Lines[i].strip()
+#for i in range(len(Lines)):
+for i, Line in enumerate(Lines):
+    repositorie=Line.strip()
     # To the repositorie:
     p1.run("go2repositorie",repositorie)# repositorie=="arg_code":"0" //Bearing in mind that the order of the variable is 0
     # make operations:
