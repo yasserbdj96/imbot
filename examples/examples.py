@@ -4,7 +4,7 @@ Default json code:
     "url":"<WEBSITE_URL>",
     "<OPIRATION_TITLE>":{
         "operations":[
-           {"type":"<xpath/link_text/id/name/tag_name>","code":"<ELEMENT_CODE>","arg_code":"[n]","opt":"<click/put>","arg_data":"[n]","data":"<YOUR_DATA>"}
+           {"type":"<xpath/link_text/id/name/tag_name>","code":"<ELEMENT_CODE>","arg_code":"[n]","opt":"<click/put/get>","arg_data":"[n]","data":"<YOUR_DATA>"}
         ]
     }
 }
@@ -14,14 +14,17 @@ Help:
 # If you don't use the 'code' key, you must use the 'arg_code' key to enter data from your script.
 # If you don't use the 'data' key, you must use the 'arg_data' key to enter data from your script.
 # When using the 'put' option you must use 'data' or 'arg_data', Unlike the "click" option.
+# When using the 'get' option you must use 'data' or 'arg_data', Unlike the "click" option, data=get_attribute("<src/herf/name/id>").
 # 'arg_data' and 'arg_code' are numbers.
 # 'arg_data' and 'arg_code' are the order of the element to be inserted from the list. //Example: p1.run(<OPIRATION_TITLE>,n0,n1,n2....n)
 # 'data' and 'code' for entering data like password or username from json file (this is a common option if the variables you want to use are static).
+
 """
 
 from imbot import *
 
 # Examples
+# Example 1:
 # Open the website link:
 p1=imbot("github.json")
 
@@ -57,3 +60,14 @@ for i, Line in enumerate(Lines):
 
 # end
 p1.end()
+
+# Example 2:
+# Open the website link:
+p2=imbot("google.json")
+
+# Here, search for a movie poster in Google Images and get the link:
+print(p2.run("search","Game.Of.Thrones.Conquest.And.Rebellion.2017"))
+print(p2.run("search","DEJA.VU.2018"))
+
+# end
+p2.end()

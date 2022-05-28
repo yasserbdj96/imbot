@@ -35,6 +35,7 @@ class imbot:
     def run(self,goto,*argm):
         operations=self.json_data[goto]['operations']
         #for i in range(len(operations)):
+        get_list=[]
         for i, operation in enumerate(operations):
             try:
                 #
@@ -49,6 +50,9 @@ class imbot:
                 if operation['opt']=="click":
                     do="click()"
                     text=f"[✓] Clicking on element_by_{types} : '{code}'"
+                    exec(f"self.driver.find_element_by_{types}('{code}').{do}")
+                    hexor().c(text,"#299c52")
+                    sleep(self.sleep_time)
                 #
                 elif operation['opt']=="put":
                     #
@@ -60,10 +64,26 @@ class imbot:
                         data=input(hexor(True).c("Data is empty : ","#ff0000"))
                     do=f"send_keys('{data}')"
                     text=f"[✓] Putting data to element_by_{types} : '{code}'"
+                    exec(f"self.driver.find_element_by_{types}('{code}').{do}")
+                    hexor().c(text,"#299c52")
+                    sleep(self.sleep_time)
                 #
-                exec(f"self.driver.find_element_by_{types}('{code}').{do}")
-                hexor().c(text,"#299c52")
-                sleep(self.sleep_time)
+                elif operation['opt']=="get":
+                    do=""
+                    text=f"[✓] Get data to element_by_{types} : '{code}'"
+                    #
+                    if "arg_data" in operation:
+                        data=argm[int(operation['arg_data'])]
+                    elif "data" in operation:
+                        data=operation['data']
+                    else:
+                        data=input(hexor(True).c("Data is empty : ","#ff0000"))
+                    #xxx="hiii"
+                    xxx=f"self.driver.find_element_by_{types}('{code}').get_attribute('{data}')"
+                    hexor().c(text,"#299c52")
+                    get_list.append(eval(xxx))
+                    sleep(self.sleep_time)
+            #
             except Exception as e:
                 try:
                     #
@@ -83,6 +103,7 @@ class imbot:
                     pass
             finally:
                 pass
+        return get_list
     #end:
     def end(self):
         self.driver.close()
