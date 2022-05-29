@@ -7,7 +7,7 @@
 from setuptools import setup,find_packages
 setup(
     name="imbot",
-    version="0.1.3",
+    version="0.1.6",
     author="YasserBDJ96",
     author_email="yasser.bdj96@gmail.com",
     description='''imbot for making a bot to control any website.''',

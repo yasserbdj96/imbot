@@ -123,6 +123,13 @@ p2.end()
 <h2>Changelog History:</h2>
 
 ```
+## 0.1.6 [29-05-2022]
+ - Fix bugs.
+
+## 0.1.5 [28-05-2022]
+ - Add sleep.
+ - Fix bugs.
+
 ## 0.1.3 [28-05-2022]
  - Add Return 'get_attribute' as a list.
  - Fix bugs.

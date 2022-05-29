@@ -28,7 +28,6 @@ class imbot:
             self.url=self.json_data['url']
         else:
             self.url=url
-
         self.driver.get(self.url)
         self.sleep_time=sleep_time
     #run:
@@ -50,6 +49,10 @@ class imbot:
                 if operation['opt']=="click":
                     do="click()"
                     text=f"[✓] Clicking on element_by_{types} : '{code}'"
+                    #
+                    if "sleep" in operation:
+                        sleep(operation['sleep'])
+                    #
                     exec(f"self.driver.find_element_by_{types}('{code}').{do}")
                     hexor().c(text,"#299c52")
                     sleep(self.sleep_time)
@@ -62,6 +65,10 @@ class imbot:
                         data=operation['data']
                     else:
                         data=input(hexor(True).c("Data is empty : ","#ff0000"))
+                    #
+                    if "sleep" in operation:
+                        sleep(operation['sleep'])
+                    #
                     do=f"send_keys('{data}')"
                     text=f"[✓] Putting data to element_by_{types} : '{code}'"
                     exec(f"self.driver.find_element_by_{types}('{code}').{do}")
@@ -78,7 +85,10 @@ class imbot:
                         data=operation['data']
                     else:
                         data=input(hexor(True).c("Data is empty : ","#ff0000"))
-                    #xxx="hiii"
+                    #
+                    if "sleep" in operation:
+                        sleep(operation['sleep'])
+                    #
                     xxx=f"self.driver.find_element_by_{types}('{code}').get_attribute('{data}')"
                     hexor().c(text,"#299c52")
                     get_list.append(eval(xxx))

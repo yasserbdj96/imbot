@@ -4,7 +4,7 @@ Default json code:
     "url":"<WEBSITE_URL>",
     "<OPIRATION_TITLE>":{
         "operations":[
-           {"type":"<xpath/link_text/id/name/tag_name>","code":"<ELEMENT_CODE>","arg_code":"[n]","opt":"<click/put/get>","arg_data":"[n]","data":"<YOUR_DATA>"}
+           {"type":"<xpath/link_text/id/name/tag_name>","code":"<ELEMENT_CODE>","arg_code":"[n]","opt":"<click/put/get>","arg_data":"[n]","data":"<YOUR_DATA>","sleep":<Seconds>}
         ]
     }
 }
@@ -18,6 +18,7 @@ Help:
 # 'arg_data' and 'arg_code' are numbers.
 # 'arg_data' and 'arg_code' are the order of the element to be inserted from the list. //Example: p1.run(<OPIRATION_TITLE>,n0,n1,n2....n)
 # 'data' and 'code' for entering data like password or username from json file (this is a common option if the variables you want to use are static).
+# 'sleep' To wait for a certain period before starting an operation.
 
 """
 
