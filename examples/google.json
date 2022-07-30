@@ -4,15 +4,11 @@
         "operations":[
            {"type":"xpath","code":"/html/body/c-wiz/c-wiz/div/div[3]/div[2]/div/div[1]/form/div[1]/div[1]/c-wiz/div/a","opt":"click"},
            {"type":"xpath","code":"/html/body/div[1]/div[1]/div/div/div/div[1]/div/div[2]/a","opt":"click"},
-           {"type":"xpath","code":"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input","opt":"put","arg_data":"0"},
+           {"type":"xpath","code":"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input","opt":"put","arg_data":"search_for"},
            {"type":"xpath","code":"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/button","opt":"click"},
-
            {"type":"xpath","code":"/html/body/div[2]/c-wiz/div[1]/div/div[1]/div[2]/div[2]","opt":"click"},
            {"type":"xpath","code":"/html/body/div[2]/c-wiz/div[2]/div[2]/c-wiz[1]/div/div/div[1]/div/div[1]/div","opt":"click"},
            {"type":"xpath","code":"/html/body/div[2]/c-wiz/div[2]/div[2]/c-wiz[1]/div/div/div[3]/div/a[2]","opt":"click"},
-
-
-
            {"type":"xpath","code":"/html/body/div[2]/c-wiz/div[3]/div[1]/div/div[1]/div/div[1]/div[1]/span/div[1]/div[1]/div[1]/a[1]/div[1]/img","opt":"click"},
            {"type":"xpath","code":"/html/body/div[2]/c-wiz/div[3]/div[2]/div[3]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[3]/div/a/img","opt":"get","data":"src","sleep":10}
         ]

@@ -1,10 +1,24 @@
+#!/usr/bin/env python
+# coding:utf-8
+#   |                                                          |
+# --+----------------------------------------------------------+--
+#   |   Code by : yasserbdj96                                  |
+#   |   Email   : yasser.bdj96@gmail.com                       |
+#   |   Github  : https://github.com/yasserbdj96               |
+#   |   BTC     : bc1q2dks8w8uurca5xmfwv4jwl7upehyjjakr3xga9   |
+# --+----------------------------------------------------------+--  
+#   |        all posts #yasserbdj96 ,all views my own.         |
+# --+----------------------------------------------------------+--
+#   |                                                          |
+
+
 """
 Default json code:
 {
     "url":"<WEBSITE_URL>",
     "<OPIRATION_TITLE>":{
         "operations":[
-           {"type":"<xpath/link_text/id/name/tag_name>","code":"<ELEMENT_CODE>","arg_code":"[n]","opt":"<click/put/get>","arg_data":"[n]","data":"<YOUR_DATA>","sleep":<Seconds>}
+           {"type":"<xpath/link_text/id/name/tag_name>","code":"<ELEMENT_CODE>","arg_code":"<VARIABLE_NAME>","opt":"<click/put/get>","arg_data":"<VARIABLE_NAME>","data":"<YOUR_DATA>","sleep":<Seconds>}
         ]
     }
 }
@@ -15,28 +29,26 @@ Help:
 # If you don't use the 'data' key, you must use the 'arg_data' key to enter data from your script.
 # When using the 'put' option you must use 'data' or 'arg_data', Unlike the "click" option.
 # When using the 'get' option you must use 'data' or 'arg_data', Unlike the "click" option, data=get_attribute("<src/herf/name/id>").
-# 'arg_data' and 'arg_code' are numbers.
-# 'arg_data' and 'arg_code' are the order of the element to be inserted from the list. //Example: p1.run(<OPIRATION_TITLE>,n0,n1,n2....n)
+# 'arg_data' and 'arg_code' are 'variable name'.
+# 'arg_data' and 'arg_code' are the variable name of the element to be inserted from the list. //Example: p1.run(<OPIRATION_TITLE>,password="123456789")
 # 'data' and 'code' for entering data like password or username from json file (this is a common option if the variables you want to use are static).
 # 'sleep' To wait for a certain period before starting an operation.
 
 """
 
+#START{
 from imbot import *
 
 # Examples
 # Example 1:
 # Open the website link:
-p1=imbot("github.json")
-
-# about & logo:
-p1.about()
+p1=imbot("github.json",headless=False)
 
 # Login:
-p1.run("login",'<YOUR_PASSWORD>')
-# login==OPIRATION_TITLE
-# <YOUR_PASSWORD> == "arg_data":"0" 
-# Bearing in mind that the order of the variable is 0. Example: p1.run(<OPIRATION_TITLE>,n0,n1,n2....n)
+p1.run("login",passw='<YOUR_PASSWORD>')
+# login==>OPIRATION_TITLE
+# passw=<YOUR_PASSWORD> ==> "arg_data":"passw" 
+# Bearing in mind that the name of the variable is 'passw'.
 
 # To the profile page:
 # p1.run("profile")
@@ -46,16 +58,16 @@ p1.run("login",'<YOUR_PASSWORD>')
 # p1.run("go2home")
 
 # read the list of repositories:
-Lines=open('list.txt','r').readlines()
+Lines=open('github_list.txt','r').readlines()
 
 # Strips the newline character
 #for i in range(len(Lines)):
 for i, Line in enumerate(Lines):
     repositorie=Line.strip()
     # To the repositorie:
-    p1.run("go2repositorie",repositorie)# repositorie=="arg_code":"0" //Bearing in mind that the order of the variable is 0
+    p1.run("go2repositorie",repo=repositorie)# repositorie=="arg_code":"repo" //Bearing in mind that the name of the variable is 'repo'
     # make operations:
-    p1.run("hide_repositorie",repositorie)# repositorie=="arg_data":"0" //Bearing in mind that the order of the variable is 0
+    p1.run("hide_repositorie",repo=repositorie)# repositorie=="arg_data":"repo" //Bearing in mind that the name of the variable is 'repo'
     # To the home page:
     p1.run("go2home")
 
@@ -64,11 +76,12 @@ p1.end()
 
 # Example 2:
 # Open the website link:
-p2=imbot("google.json")
+p2=imbot("google.json")#,headless=False
 
 # Here, search for a movie poster in Google Images and get the link:
-print(p2.run("search","Game.Of.Thrones.Conquest.And.Rebellion.2017"))
-print(p2.run("search","DEJA.VU.2018"))
+print(p2.run("search",search_for="yasserbdj96 on github"))
+print(p2.run("search",search_for="luffy one piece"))
 
 # end
 p2.end()
+#}END.

@@ -2,10 +2,9 @@
 	"url":"https://github.com/",
 	"login":{
 		"operations":[
-			
-			{"type":"link_text","code":"Sign in","opt":"click"},
+			{"type":"xpath","code":"/html/body/div[1]/header/div/div[2]/div[2]/div[2]/a","opt":"click"},
 			{"type":"xpath","code":"/html/body/div[3]/main/div/div[4]/form/input[2]","opt":"put","data":"<YOUR_USERNAME>"},
-			{"type":"id","code":"password","opt":"put","arg_data":"0"},
+			{"type":"id","code":"password","opt":"put","arg_data":"passw"},
 			{"type":"name","code":"commit","opt":"click"},
 			{"type":"link_text","code":"Enter two-factor authentication code","opt":"click"},
 			{"type":"id","code":"otp","opt":"put"},
@@ -28,7 +27,7 @@
 			{"type":"name","code":"button","opt":"click"},
 			{"type":"name","code":"button","opt":"click"},
 			{"type":"name","code":"button","opt":"click"},
-			{"type":"link_text","opt":"click","arg_code":"0"}
+			{"type":"link_text","opt":"click","arg_code":"repo"}
 		]
 	},
 	"hide_repositorie":{
@@ -36,7 +35,7 @@
 			{"type":"id","code":"settings-tab","opt":"click"},
 			{"type":"xpath","code":"/html/body/div[6]/div/main/div[2]/div/div/div[2]/div/div/div/div[10]/ul/li[1]/div[1]/form/details/summary","opt":"click"},
 			{"type":"xpath","code":"/html/body/div[6]/div/main/div[2]/div/div/div[2]/div/div/div/div[10]/ul/li[1]/div[1]/form/details/details-dialog/div[3]/div[2]/label/input","opt":"click"},
-			{"type":"name","code":"verify","opt":"put","arg_data":"0"},
+			{"type":"name","code":"verify","opt":"put","arg_data":"repo"},
 			{"type":"xpath","code":"/html/body/div[6]/div/main/div[2]/div/div/div[2]/div/div/div/div[10]/ul/li[1]/div[1]/form/details/details-dialog/div[4]/div/button","opt":"click"}
 		]
 	}
