@@ -1,3 +1,9 @@
+## 0.1.7 [30-07-2022]
+ - make run option.
+ - Modify to build on docker.
+ - Change input settings.
+ - Fix bugs.
+
 ## 0.1.6 [29-05-2022]
  - Fix bugs.
 

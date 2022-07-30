@@ -1,14 +1,22 @@
 #!/usr/bin/env python
 # coding:utf-8
-#code by:YasserBDJ96
-#email:yasser.bdj96@gmail.com
+#   |                                                          |
+# --+----------------------------------------------------------+--
+#   |   Code by : yasserbdj96                                  |
+#   |   Email   : yasser.bdj96@gmail.com                       |
+#   |   Github  : https://github.com/yasserbdj96               |
+#   |   BTC     : bc1q2dks8w8uurca5xmfwv4jwl7upehyjjakr3xga9   |
+# --+----------------------------------------------------------+--  
+#   |        all posts #yasserbdj96 ,all views my own.         |
+# --+----------------------------------------------------------+--
+#   |                                                          |
 
 #START{
 from setuptools import setup,find_packages
 setup(
     name="imbot",
-    version="0.1.6",
-    author="YasserBDJ96",
+    version="0.1.7",
+    author="yasserbdj96",
     author_email="yasser.bdj96@gmail.com",
     description='''imbot for making a bot to control any website.''',
     long_description_content_type="text/markdown",
@@ -18,6 +26,7 @@ setup(
     url="https://yasserbdj96.github.io/",
     project_urls={
         'Source Code': "https://github.com/yasserbdj96/imbot",
+        'Author WebSite': "https://yasserbdj96.github.io/",
         'Instagram': "https://www.instagram.com/yasserbdj96/",
     },
     install_requires=['selenium','hexor','asciitext'],
