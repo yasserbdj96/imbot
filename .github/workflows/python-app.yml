@@ -35,4 +35,4 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt
       - name: run the Package
-        run: python wrdir/run.py
+        run: python wrdir/run.py "headless=False" "json_data='./examples/google.json'" "opiration_title='search'" "argvs={'search_for':'yasserbdj96 on github'}"
