@@ -2,7 +2,7 @@
 
 <p>imbot for making a bot to control any website.</p>
 
-[![Python package](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml) [![CodeFactor](https://www.codefactor.io/repository/github/yasserbdj96/imbot/badge)](https://www.codefactor.io/repository/github/yasserbdj96/imbot) [![Docker image](https://github.com/yasserbdj96/imbot/actions/workflows/docker-image.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/docker-image.yml) [![Visitors](https://visitor-badge.laobi.icu/badge?page_id=yasserbdj96.imbot)](https://github.com/yasserbdj96/imbot)
+[![Python package](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml) [![CodeFactor](https://www.codefactor.io/repository/github/yasserbdj96/imbot/badge)](https://www.codefactor.io/repository/github/yasserbdj96/imbot) [![Docker image](https://github.com/yasserbdj96/imbot/actions/workflows/docker-image.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/docker-image.yml) [![Visitors](https://visitor-badge.laobi.icu/badge?page_id=yasserbdj96.imbot)](https://github.com/yasserbdj96/imbot) [![Join the chat at https://gitter.im/yasserbdj96/imbot](https://badges.gitter.im/yasserbdj96/imbot.svg)](https://gitter.im/yasserbdj96/imbot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 <h2>Languages:</h2>
