@@ -16,7 +16,7 @@
 # *    = All inputs must be entered.
 
 #START{
-FROM python:3.10
+FROM python:3.11.0
 
 # Adding trusting keys to apt for repositories
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
