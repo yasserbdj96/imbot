@@ -1,0 +1,19 @@
+{
+    "url":"https://www.google.com",
+    "search":{
+        "operations":[
+           {"element_by":"xpath","element_code":"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input","opt":"put","arg_data":"search_for"},
+           {"element_by":"xpath","element_code":"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[4]/center/input[1]","opt":"click"},
+           {"element_by":"xpath","element_code":"/html/body/div[7]/div/div[11]/div/div[2]/div[2]/div/div/div[1]/div/div/div[1]/div/a","opt":"click"},
+           {"element_by":"xpath","element_code":"/html/body/div[1]/div[4]/main/div[2]/div/div[1]/div/div[2]/div[3]/div[2]/ul/li[4]/a","opt":"click","sleep":10},
+           {"element_by":"xpath","element_code":"/html/body/main/section[2]/a[1]","opt":"get","data":"href"},
+           {"element_by":"xpath","element_code":"/html/body/main/section[2]/a[2]","opt":"get","data":"href"},
+           {"element_by":"xpath","element_code":"/html/body/main/section[2]/a[3]","opt":"get","data":"href"},
+           {"element_by":"xpath","element_code":"/html/body/main/section[2]/a[4]","opt":"get","data":"href"},
+           {"element_by":"xpath","element_code":"/html/body/main/section[2]/a[5]","opt":"get","data":"href"},
+           {"element_by":"xpath","element_code":"/html/body/main/section[2]/a[6]","opt":"get","data":"href"},
+           {"element_by":"xpath","element_code":"/html/body/main/section[2]/a[7]","opt":"get","data":"href"},
+           {"element_by":"xpath","element_code":"/html/body/main/section[2]/a[8]","opt":"get","data":"href"}
+        ]
+    }
+}

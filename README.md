@@ -26,13 +26,13 @@
 
 ```bash
 # pull:
-docker pull yasserbdj96/imbot:latest
+❯ docker pull yasserbdj96/imbot:latest
 
 # build:
-docker build -t docker.io/yasserbdj96/imbot:latest .
+❯ docker build -t docker.io/yasserbdj96/imbot:latest .
 
 # run:
-docker run -e headless=<True/False>* -e json_data='<PATH/TO/JSON/FILE>*' -e opiration_title='<TITLE_OF_OPIRATION>*' -e argvs='<ARGV_DATA_ID>="<DATA_TO_INPUT>"' -i -t imbot:latest
+❯ docker run -e headless=<True/False>* -e json_data='<PATH_TO_YOUR_JSON_FILE>*' -e opiration_title='<TITLE_OF_OPIRATION>*' -e argvs='<ARGV_DATA_ID>="<DATA_TO_INPUT>"' -i -t imbot:latest
 # EX:
 # docker run -e headless=True -e json_data="google.json" -e opiration_title="search" -e  argvs='search_for="yasserbdj96 on github"' -i -t imbot:latest
 # *    = All inputs must be entered.
@@ -42,13 +42,13 @@ docker run -e headless=<True/False>* -e json_data='<PATH/TO/JSON/FILE>*' -e opir
 
 ```bash
 # pull:
-docker pull ghcr.io/yasserbdj96/imbot:latest
+❯ docker pull ghcr.io/yasserbdj96/imbot:latest
 
 # build:
-docker build -t ghcr.io/yasserbdj96/imbot:latest .
+❯ docker build -t ghcr.io/yasserbdj96/imbot:latest .
 
 # run:
-docker run -e headless=<True/False>* -e json_data='<PATH/TO/JSON/FILE>*' -e opiration_title='<TITLE_OF_OPIRATION>*' -e argvs='<ARGV_DATA_ID>="<DATA_TO_INPUT>"' -i -t ghcr.io/yasserbdj96/imbot:latest
+❯ docker run -e headless=<True/False>* -e json_data='<PATH_TO_YOUR_JSON_FILE>*' -e opiration_title='<TITLE_OF_OPIRATION>*' -e argvs='<ARGV_DATA_ID>="<DATA_TO_INPUT>"' -i -t ghcr.io/yasserbdj96/imbot:latest
 # EX:
 # docker run -e headless=True -e json_data="google.json" -e opiration_title="search" -e  argvs='search_for="yasserbdj96 on github"' -i -t ghcr.io/yasserbdj96/imbot:latest
 # *    = All inputs must be entered.
@@ -57,18 +57,30 @@ docker run -e headless=<True/False>* -e json_data='<PATH/TO/JSON/FILE>*' -e opir
 <h2>Python Package Installation:</h2>
 
 ```
-pip install imbot
+# Install from pypi:
+❯ pip install imbot
+# OR
+❯ python -m pip install imbot
+
+# Local install:
+❯ git clone https://github.com/yasserbdj96/imbot.git
+❯ cd imbot
+❯ pip install -r requirements-pypi.txt
+❯ sudo python setup.py install
+
+# Uninstall:
+❯ pip uninstall hiphp
 ```
 
 <h2>Run without installation:</h2>
 
 ```
-git clone https://github.com/yasserbdj96/imbot.git
-cd imbot
-pip install -r requirements.txt
-python3 run.py "headless=<True/False>*" "json_data='<PATH/TO/JSON/FILE>*'" "opiration_title='<TITLE_OF_OPIRATION>*'" "argvs={'<ARGV_DATA_ID>':'<DATA_TO_INPUT>'}"
+❯ git clone https://github.com/yasserbdj96/imbot.git
+❯ cd imbot
+❯ pip install -r requirements.txt
+❯ python run.py --headless <True/False> --json_data '<PATH_TO_YOUR_JSON_FILE>*' --opiration_title '<TITLE_OF_OPIRATION>*' --argvs '{"<ARGV_DATA_ID>":"<DATA_TO_INPUT>"}' --exec_path '<CHROMEDRIVER_PATH>'
 # EX:
-# python run.py "headless=False" "json_data='./examples/google.json'" "opiration_title='search'" "argvs={'search_for':'yasserbdj96 on github'}"
+# python run.py --headless False --json_data './imbot-examples/google.json' --opiration_title 'search' --argvs '{"search_for":"yasserbdj96 github"}' --exec_path './chromedriver'
 # *    = All inputs must be entered.
 ```
 
@@ -77,7 +89,7 @@ python3 run.py "headless=<True/False>*" "json_data='<PATH/TO/JSON/FILE>*'" "opir
 ```python
 from imbot import *
 
-p1=imbot("<json_file>")
+p1=imbot(json_data="<PATH_TO_JSON_FILE>*",sleep_time=2,url="<URL_TO_JSON_FILE>*",headless=True,exec_path="<CHROMEDRIVER_PATH>")
 
 p1.run(<OPIRATION_TITLE>*,<VARIABLE_NAME>)
 # *    = All inputs must be entered.
@@ -90,20 +102,20 @@ Default json code:
     "url":"<WEBSITE_URL>",
     "<OPIRATION_TITLE>":{
         "operations":[
-           {"type":"<xpath/link_text/id/name/tag_name>","code":"<ELEMENT_CODE>","arg_code":"<VARIABLE_NAME>","opt":"<click/put/get>","arg_data":"<VARIABLE_NAME>","data":"<YOUR_DATA>","sleep":<Seconds>}
+           {"element_by":"<xpath/link_text/id/name/tag_name>","element_code":"<ELEMENT_CODE>","element_arg":"<VARIABLE_NAME>","opt":"<click/put/get>","arg_data":"<VARIABLE_NAME>","data":"<YOUR_DATA>","sleep":<Seconds>}
         ]
     }
 }
 
 Help:
-# Types of finding elements : "type"=[id,name,xpath,link_text,partial_link_text,tag_name,class_name,css_selector]
-# If you don't use the 'code' key, you must use the 'arg_code' key to enter data from your script.
+# Types of finding elements : "element_by"=[id,name,xpath,link_text,partial_link_text,tag_name,class_name,css_selector]
+# If you don't use the 'code' key, you must use the 'element_arg' key to enter data from your script.
 # If you don't use the 'data' key, you must use the 'arg_data' key to enter data from your script.
 # When using the 'put' option you must use 'data' or 'arg_data', Unlike the "click" option.
 # When using the 'get' option you must use 'data' or 'arg_data', Unlike the "click" option, data=get_attribute("<src/herf/name/id>").
-# 'arg_data' and 'arg_code' are 'variable name'.
-# 'arg_data' and 'arg_code' are the variable name of the element to be inserted from the list. //Example: p1.run(<OPIRATION_TITLE>,password="123456789")
-# 'data' and 'code' for entering data like password or username from json file (this is a common option if the variables you want to use are static).
+# 'arg_data' and 'element_arg' are 'variable name'.
+# 'arg_data' and 'element_arg' are the variable name of the element to be inserted from the list. //Example: p1.run(<OPIRATION_TITLE>,password="123456789")
+# 'data' and 'element_code' for entering data like password or username from json file (this is a common option if the variables you want to use are static).
 # 'sleep' To wait for a certain period before starting an operation.
 """
 ```
@@ -116,48 +128,14 @@ from imbot import *
 # Examples
 # Example 1:
 # Open the website link:
-p1=imbot("github.json",headless=False)
+p1=imbot("google.json")#,headless=False
 
-# Login:
-p1.run("login",passw='<YOUR_PASSWORD>')
-# login==>OPIRATION_TITLE
-# passw=<YOUR_PASSWORD> ==> "arg_data":"passw" 
-# Bearing in mind that the name of the variable is 'passw'.
-
-# To the profile page:
-# p1.run("profile")
-# profile==OPIRATION_TITLE
-
-# To home page:
-# p1.run("go2home")
-
-# read the list of repositories:
-Lines=open('github_list.txt','r').readlines()
-
-# Strips the newline character
-#for i in range(len(Lines)):
-for i, Line in enumerate(Lines):
-    repositorie=Line.strip()
-    # To the repositorie:
-    p1.run("go2repositorie",repo=repositorie)# repositorie=="arg_code":"repo" //Bearing in mind that the name of the variable is 'repo'
-    # make operations:
-    p1.run("hide_repositorie",repo=repositorie)# repositorie=="arg_data":"repo" //Bearing in mind that the name of the variable is 'repo'
-    # To the home page:
-    p1.run("go2home")
+# Here, search for a movie poster in Google Images and get the link:
+print(p1.run("search",search_for="yasserbdj96 on github"))
+print(p1.run("search",search_for="luffy one piece"))
 
 # end
 p1.end()
-
-# Example 2:
-# Open the website link:
-p2=imbot("google.json")#,headless=False
-
-# Here, search for a movie poster in Google Images and get the link:
-print(p2.run("search",search_for="yasserbdj96 on github"))
-print(p2.run("search",search_for="luffy one piece"))
-
-# end
-p2.end()
 ```
 
 <h2>Screenshot:</h2>
@@ -171,47 +149,58 @@ p2.end()
     </a>
 </div>
 
+<br>
 <h2>Changelog History:</h2>
-
-```
-## 0.1.7 [30-07-2022]
- - make run option.
- - Modify to build on docker.
- - Change input settings.
- - Fix bugs.
-
-## 0.1.6 [29-05-2022]
- - Fix bugs.
-
-## 0.1.5 [28-05-2022]
- - Add sleep.
- - Fix bugs.
-
-## 0.1.3 [28-05-2022]
- - Add Return 'get_attribute' as a list.
- - Fix bugs.
- 
-## 0.1.2 [10-03-2022]
- - Fix bugs.
-
-## 0.1.1 [10-03-2022]
- - Fix bugs.
-
-## 0.1.0
-- New build.
-
-## 0.0.1
-- First public release.
-```
-
-<h1></h1> 
-
-Don't forget to star ⭐ this repository
-<br>
-
-all posts [`#yasserbdj96`](#yasserbdj96) ,all views my own.
+<a href="https://raw.githubusercontent.com/yasserbdj96/imbot/main/CHANGELOG">Click to See changelog History</a>
 
 <br>
+<h2>Limitations:</h2>
+# Types of finding elements : "element_by"=[id,name,xpath,link_text,partial_link_text,tag_name,class_name,css_selector]<br>
+# If you don't use the 'code' key, you must use the 'element_arg' key to enter data from your script.<br>
+# If you don't use the 'data' key, you must use the 'arg_data' key to enter data from your script.<br>
+# When using the 'put' option you must use 'data' or 'arg_data', Unlike the "click" option.<br>
+# When using the 'get' option you must use 'data' or 'arg_data', Unlike the "click" option, data=get_attribute("<src/herf/name/id>").<br>
+# 'arg_data' and 'element_arg' are 'variable name'.<br>
+# 'arg_data' and 'element_arg' are the variable name of the element to be inserted from the list. //Example: p1.run(<OPIRATION_TITLE>,password="123456789")<br>
+# 'data' and 'element_code' for entering data like password or username from json file (this is a common option if the variables you want to use are static).<br>
+# 'sleep' To wait for a certain period before starting an operation.
+
+<br>
+<h2>Development By:</h2>
+
+Developer / Author: [yasserbdj96](https://github.com/yasserbdj96)
+
+<br>
+<h2>License:</h2>
+<p>The content of this repository is bound by the following <a href="https://raw.githubusercontent.com/yasserbdj96/imbot/main/LICENSE">LICENSE</a>.</p>
+
+<br>
+<h2>Support:</h2>
+<p>If you like `imbot` and want to see it improve furthur or want me to create intresting projects , You can buy me a coffee </p>
 <div align="center">
-    <a href="http://yasserbdj96.github.io/">Go to this link to get more information.</a>
+    <a href="https://ko-fi.com/yasserbdj96">
+        <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="imbot by yasserbdj96">
+    </a><br>
+    BTC: bc1q2dks8w8uurca5xmfwv4jwl7upehyjjakr3xga9<br>
 </div>
+
+<br><br>
+
+<p align="center">
+  <samp>
+    <a href="https://yasserbdj96.github.io/">website</a> .
+    <a href="https://github.com/yasserbdj96">github</a> .
+    <a href="https://gitlab.com/yasserbdj96">gitlab</a> .
+    <a href="https://www.linkedin.com/in/yasserbdj96">linkedin</a> .
+    <a href="https://twitter.com/yasserbdj96">twitter</a> .
+    <a href="https://instagram.com/yasserbdj96">instagram</a> .
+    <a href="https://www.facebook.com/yasserbdj96">facebook</a> .
+    <a href="https://www.youtube.com/@yasserbdj96">youtube</a> .
+    <a href="https://pypi.org/user/yasserbdj96">pypi</a> .
+    <a href="https://hub.docker.com/u/yasserbdj96">docker</a> .
+    <a href="https://t.me/yasserbdj96">telegram</a> .
+    <a href="https://gitter.im/yasserbdj96/yasserbdj96">gitter</a> .
+    <a href="mailto:yasser.bdj96@gmail.com">e-mail</a> .
+    <a href="https://ko-fi.com/yasserbdj96">sponsor</a>
+  </samp>
+</p>

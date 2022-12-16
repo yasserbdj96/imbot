@@ -1,3 +1,6 @@
+## 0.1.8 [16-12-2022]
+ - Bug fixes & performance improvements.
+
 ## 0.1.7 [30-07-2022]
  - make run option.
  - Modify to build on docker.

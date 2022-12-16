@@ -17,15 +17,19 @@ from time import sleep
 from selenium.webdriver.chrome.options import Options
 import json
 from hexor import hexor
-from asciitext import *
+from imbot.imbotmsgs import *
+from imbot.imbotversion import __version__
 
 #start imbot class:
 class imbot:
     #__init__
-    def __init__(self,json_data,sleep_time=2,url="",headless=True):
-        imbot.about(self)
-        with open(json_data) as f:
-            self.json_data=json.load(f)
+    def __init__(self,json_data="",sleep_time=2,url="",headless=True,exec_path=""):
+        
+        try:
+            with open(json_data) as f:
+                self.json_data=json.load(f)
+        except:
+            json_data=input(msgi_2)
         chrome_options=Options()
         chrome_options.add_experimental_option('excludeSwitches',['enable-logging'])
         chrome_options.add_argument('--log-level=3')
@@ -41,14 +45,21 @@ class imbot:
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
 
-        self.driver=webdriver.Chrome(options=chrome_options)
+        if exec_path!="":
+            self.driver=webdriver.Chrome(options=chrome_options,executable_path=exec_path)
+        else:
+            self.driver=webdriver.Chrome(options=chrome_options)
         #
         if "url" in self.json_data:
             self.url=self.json_data['url']
         else:
-            self.url=url
+            if url!="":
+                self.url=url
+            else:
+                self.url=input(msgi_1)
         self.driver.get(self.url)
         self.sleep_time=sleep_time
+
     #run:
     def run(self,goto,**kwargs):
         operations=self.json_data[goto]['operations']
@@ -57,13 +68,12 @@ class imbot:
         for i, operation in enumerate(operations):
             try:
                 #
-                if "code" in operation:
-                    code=operation['code']
-                elif "arg_code" in operation:
-                        #code=argm[int(operation['arg_code'])]
-                        code=kwargs[operation['arg_code']]
+                if "element_code" in operation:
+                    code=operation['element_code']
+                elif "element_arg" in operation:
+                    code=kwargs[operation['element_arg']]
                 #
-                types=operation['type']
+                types=operation['element_by']
                 exec(f"self.driver.find_element('{types}','{code}')")
                 #
                 if operation['opt']=="click":
@@ -141,12 +151,4 @@ class imbot:
     #end:
     def end(self):
         self.driver.close()
-    
-    #about:
-    def about(self):
-        font_url="https://raw.githubusercontent.com/yasserbdj96/asciitext/main/fonts/ANSI_Shadow.txt"
-        print(ascii.asciitext(font_url,"#imbot","#ff0000"))
-        print(hexor(True,"hex").c((" "*24)+"Code by -> ","#fbbc05")+hexor(True,"hex").c("yasserbdj96","#34a853"))
-        print(hexor(True,"hex").c((" "*24)+"V0.1.7","#ff0000"))
-        print("")
 #}END.

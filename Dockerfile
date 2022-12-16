@@ -10,13 +10,13 @@
 #   |                                                          |
 
 # docker build -t imbot:latest .
-# docker run -e headless=<True/False>* -e json_data='<PATH/TO/JSON/FILE>*' -e opiration_title='<TITLE_OF_OPIRATION>*' -e argvs='<ARGV_DATA_ID>="<DATA_TO_INPUT>"' -i -t imbot:latest
+# docker run -e headless=<True/False>* -e json_data='<PATH_TO_YOUR_JSON_FILE>*' -e opiration_title='<TITLE_OF_OPIRATION>*' -e argvs='<ARGV_DATA_ID>="<DATA_TO_INPUT>"' -i -t imbot:latest
 # EX:
-# docker run -e headless=True -e json_data="google.json" -e opiration_title="search" -e  argvs='search_for="yasserbdj96 on github"' -i -t imbot:latest
+# docker run -e headless=True -e json_data="google.json" -e opiration_title="search" -e  argvs='{"search_for":"yasserbdj96 github"}' -i -t imbot:latest
 # *    = All inputs must be entered.
 
 #START{
-FROM python:3.11.1
+FROM python:3.10
 
 # Adding trusting keys to apt for repositories
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -56,7 +56,7 @@ COPY ./requirements.txt /wrdir/requirements.txt
 # Add the path of json file here:
 # 'google.json' just an example.
 # you can add more then one file.
-COPY ./examples/google.json /wrdir
+COPY ./imbot-examples/google.json /wrdir
 
 RUN pip install --upgrade --no-cache-dir -r ./requirements.txt
 RUN rm ./requirements.txt # remove requirements file from container.
