@@ -1,8 +1,33 @@
-<h1>imbot</h1>
+<div align="center">
+  <h1>imbot</h1>
+  <strong>imbot - create a bot to control any website.</strong>
+</div>
+<br>
 
-<p>imbot for making a bot to control any website.</p>
-
-[![Python package](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/yasserbdj96/imbot/actions/workflows/python-app.yml) [![CodeFactor](https://www.codefactor.io/repository/github/yasserbdj96/imbot/badge)](https://www.codefactor.io/repository/github/yasserbdj96/imbot) [![Docker image](https://github.com/yasserbdj96/imbot/actions/workflows/docker-image.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/docker-image.yml) [![Visitors](https://visitor-badge.laobi.icu/badge?page_id=yasserbdj96.imbot)](https://github.com/yasserbdj96/imbot) [![Join the chat at https://gitter.im/yasserbdj96/imbot](https://badges.gitter.im/yasserbdj96/imbot.svg)](https://gitter.im/yasserbdj96/imbot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Test on Ubuntu latest](https://github.com/yasserbdj96/imbot/actions/workflows/python-app-on-linux.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/python-app-on-linux.yml)
+[![pypi-setup](https://github.com/yasserbdj96/imbot/actions/workflows/pypi-setup.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/pypi-setup.yml)
+[![Docker image](https://github.com/yasserbdj96/imbot/actions/workflows/docker-image.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/docker-image.yml)
+[![Github Container Registry](https://github.com/yasserbdj96/imbot/actions/workflows/gcr.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/gcr.yml)
+[![Upload to PYPI](https://github.com/yasserbdj96/imbot/actions/workflows/pipup.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/pipup.yml)
+[![Mirror and run GitLab CI](https://github.com/yasserbdj96/imbot/actions/workflows/push-gitLab.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/push-gitLab.yml)
+[![Deploy static content to Pages](https://github.com/yasserbdj96/imbot/actions/workflows/pages.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/pages.yml)
+[![CodeQL](https://github.com/yasserbdj96/imbot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/codeql-analysis.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/yasserbdj96/imbot/badge)](https://www.codefactor.io/repository/github/yasserbdj96/imbot)
+[![Supported Versions](https://img.shields.io/pypi/pyversions/imbot.svg)](https://pypi.org/project/imbot) 
+[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=yasserbdj96.imbot&format=true)](https://github.com/yasserbdj96/imbot)
+[![Docker pulls](https://img.shields.io/docker/pulls/yasserbdj96/imbot)](https://hub.docker.com/r/yasserbdj96/imbot/)
+[![Open Source](https://img.shields.io/badge/Open%20Source-%E2%99%A5-red)](https://github.com/yasserbdj96/imbot)
+[![Stars](https://img.shields.io/github/stars/yasserbdj96/imbot?color=red)](https://github.com/yasserbdj96/imbot)
+[![Forks](https://img.shields.io/github/forks/yasserbdj96/imbot?color=red)](https://github.com/yasserbdj96/imbot)
+[![Watching](https://img.shields.io/github/watchers/yasserbdj96/imbot?label=Watchers&color=red&style=flat-square)](https://github.com/yasserbdj96/imbot)
+![GitHub contributors](https://img.shields.io/github/contributors/yasserbdj96/imbot)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/yasserbdj96/imbot)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/yasserbdj96/imbot)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/yasserbdj96/imbot)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yasserbdj96/imbot)
+![GitHub last commit](https://img.shields.io/github/last-commit/yasserbdj96/imbot)
+[![GitHub license](https://img.shields.io/github/license/yasserbdj96/imbot)](https://github.com/yasserbdj96/imbot)
+[![Join the chat at https://gitter.im/yasserbdj96/imbot](https://badges.gitter.im/yasserbdj96/imbot.svg)](https://gitter.im/yasserbdj96/imbot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 <h2>Languages:</h2>
@@ -69,7 +94,7 @@
 ❯ sudo python setup.py install
 
 # Uninstall:
-❯ pip uninstall hiphp
+❯ pip uninstall imbot
 ```
 
 <h2>Run without installation:</h2>
@@ -82,6 +107,9 @@
 # EX:
 # python run.py --headless False --json_data './imbot-examples/google.json' --opiration_title 'search' --argvs '{"search_for":"yasserbdj96 github"}' --exec_path './chromedriver'
 # *    = All inputs must be entered.
+
+# Run with Makefile:
+❯ make run headless=<True/False> json_data='<PATH_TO_YOUR_JSON_FILE>*' opiration_title='<TITLE_OF_OPIRATION>*' argvs='{"<ARGV_DATA_ID>":"<DATA_TO_INPUT>"}' exec_path='<CHROMEDRIVER_PATH>'
 ```
 
 <h2>Usage:</h2>
