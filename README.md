@@ -1,9 +1,8 @@
 <div align="center">
   <h1>imbot</h1>
-  <strong>imbot - create a bot to control any website.</strong>
+  <strong>Imbot is an automation tool for website control. Simplify your workflow and automate repetitive tasks with ease. </strong>
 </div>
 <br>
-
 
 [![Test on Ubuntu latest](https://github.com/yasserbdj96/imbot/actions/workflows/python-app-on-linux.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/python-app-on-linux.yml)
 [![pypi-setup](https://github.com/yasserbdj96/imbot/actions/workflows/pypi-setup.yml/badge.svg)](https://github.com/yasserbdj96/imbot/actions/workflows/pypi-setup.yml)
